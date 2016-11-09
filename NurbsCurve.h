@@ -44,7 +44,8 @@ NurbsCurve<T, N>::NurbsCurve(): P(1), U(1), deg_(0) {
 }
 
 template<class T, int N>
-NurbsCurve<T, N>::NurbsCurve(const Matrix<Matrix<T, N, 1>, Dynamic, 1> &P1, const Matrix<T, Dynamic, 1> &U1, int degree) {
+NurbsCurve<T, N>::NurbsCurve(const Matrix<Matrix<T, N, 1>, Dynamic, 1> &P1, const Matrix<T, Dynamic, 1> &U1,
+                             int degree) {
     int nSize = P1.rows();
     int mSize = U1.rows();
     deg_ = degree;
@@ -53,7 +54,7 @@ NurbsCurve<T, N>::NurbsCurve(const Matrix<Matrix<T, N, 1>, Dynamic, 1> &P1, cons
     U.resize(mSize);
     P = P1;
     U = U1;
-
+    dof = P.rows();
 }
 
 #endif //UNTITLED_NURBSCURVE_H
